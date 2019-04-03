@@ -1,0 +1,25 @@
+Unlike Primitive data types whose values are stores as a whole in a variable, objects store/add their values via refernce..
+In objects, a variable stores not the obj itself but its address in the memory.
+var obj= {
+msg: "hello"  //hello is the term stores somehwere in the memory that can be accesses via its reference msg .
+}
+
+However in case of string/numbers etc:
+var msg = "hello"
+var newmsg = msg; // here two differnt variables store a value "hello" in the memory. Objects are not like that. 
+
+
+Note** 
+If you copy a objects var then its refernce is copied not the object itself.
+
+If we imagine an object as a cabinet, then a variable is a key to it. Copying a variable duplicates the key, but not the cabinet itself.
+
+For instance:
+
+let user = { name: "John" };
+
+let admin = user; // copy the reference
+
+In the above case we have two variables which refers to the same obj in memory
+
+So if you change the property of this object via any reference created for the same then it will affect the obj and hence you can see the changes.
