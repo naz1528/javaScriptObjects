@@ -1,0 +1,48 @@
+Computed properties
+We can use square brackets in an object literal. That’s called computed properties.
+
+ex::
+var fruits= promp("Enter a fruit name", "apple")
+
+var obj = {
+  [fruits] = 5
+  }
+  
+  alert(obj.apple)
+  
+  
+The meaning of a computed property is simple: [fruit] means that the property name should be taken from fruit.
+
+So, if a visitor enters "apple", obj will become {apple: 5}.
+
+Essentially, that works the same as:
+
+ let fruit = prompt("Which fruit to buy?", "apple");
+let bag = {};
+
+// take property name from the fruit variable
+bag[fruit] = 5;
+
+
+We can use more complex expressions inside square brackets:
+
+let fruit = 'apple';
+let bag = {
+  [fruit + 'Computers']: 5 // bag.appleComputers = 5
+};
+
+
+
+NOTE****
+Reserved words are allowed as property names
+A variable cannot have a name equal to one of language-reserved words like “for”, “let”, “return” etc.
+
+But for an object property, there’s no such restriction. Any name is fine:
+
+ let obj = {
+  for: 1,
+  let: 2,
+  return: 3
+};
+
+alert( obj.for + obj.let + obj.return );
