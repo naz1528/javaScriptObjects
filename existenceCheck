@@ -1,0 +1,32 @@
+Shorthand object property
+
+function(name,age){
+return {
+name : name,
+age : age
+}
+The above way of accesing the property is so common that there is a shorthand property itself that has been declared:
+
+ex:
+function(name,age){
+return {
+name,
+age
+}
+
+To check wheater a property exists in javascript object we can use as :
+1) check the property using strict equls operator
+   if("key" === undefined) return false;
+
+2) ("key" in obj)
+
+var  obj = {}
+ if("name" in obj){return true}
+ 
+ Note**
+ 
+If a certain property doesnt exist in javascript objects then it doent throws error instead it gives undefined.
+
+*** Usually the strict equals gives the correct result except ina case where the value of an objecr is itself undefined in the declaration.
+In such cases using in is the most proper result.
+
