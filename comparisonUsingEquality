@@ -1,0 +1,24 @@
+If one objects has two references then comparing both the refernces using the equality operator gives true because both are in the same address 
+location in the memory.
+
+var obj = {
+name: "john"
+}
+var obj1 = obj // creating refernce of actual object
+
+(obj == obj1)  and (obj === obj1)  //gives true 
+
+However, two different objects which are empty gives false because they are in different locations in the memory.
+let a = {};
+let b = {}; // two independent objects
+
+alert( a == b ); // false
+
+Declaring objects as const allows you to add / modify objects
+
+const obj = {
+  name: "naz"
+  }
+  
+  obj.age = 90;
+  
