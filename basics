@@ -1,0 +1,26 @@
+JavaScript Object creation:
+
+In JavaScript. Six of them are called “primitive”, because their values contain only a single thing (be it a string or a number or whatever).
+In contrast, objects are used to store keyed collections of various data and more complex entities.
+
+Using literal or using obj constructor
+
+ex: 
+var obj = {}   or var obj = new Object()
+
+Assigning data to obj
+  var obj = {
+     name: "John",
+     age: 9
+    }
+  
+Adding property to it 
+   obj.country = "England"
+  
+Deleting property
+   delete obj.age;
+   
+Adding multi word property using quotes
+  obj["like birds"] = true;
+  
+  
