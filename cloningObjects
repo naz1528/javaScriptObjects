@@ -1,0 +1,52 @@
+To clone all the properties of one object into other consider a loop:
+
+var  obj = {
+   name: "john",
+   age: 10
+   }
+   
+   var clone= {};
+   for(let key in obj){
+     clone[key] = obj[key];
+     }
+     
+     //after this you can change the values of the keys of clone object
+     
+     clone.name = "clary";
+     
+     Object.assign() // using this buit in method copying object becomes easier and also it removes the use of loop
+     
+     The syntax is:
+     Object.assign(dest[, src1, src2, src3...])
+     
+     Arguments dest, and src1, ..., srcN (can be as many as needed) are objects.
+   It copies the properties of all objects src1, ..., srcN into dest. In other words, properties of all arguments starting from the 2nd are copied into the 1st. Then it returns dest.
+  For instance, we can use it to merge several objects into one:
+
+    let user = { name: "John" };
+
+    let permissions1 = { canView: true };
+    let permissions2 = { canEdit: true };
+
+    // copies all properties from permissions1 and permissions2 into user
+    Object.assign(user, permissions1, permissions2);    //if the recieving object user already has the same property then it will be overwriten
+
+    // now user = { name: "John", canView: true, canEdit: true } 
+     
+     Cloning object inside objects
+     
+     let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let clone = Object.assign({}, user);
+
+alert( user.sizes === clone.sizes ); // true, same object
+
+// user and clone share sizes
+user.sizes.width++;       // change a property from one place
+alert(clone.sizes.width); // 51, see the result from the other one
