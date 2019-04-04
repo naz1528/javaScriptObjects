@@ -1,0 +1,25 @@
+What ahppens when something in the cod eis not needed anymore? How does the js engine detects it and cleans it?
+
+Consider an object example:
+let obj = { name: "john"}
+now obj is a global variable that references to the john object somewhere in the memory
+
+Now, what happens if the obj var is overwritten?
+obj = null;
+
+This time the reachability to john object has lost and There’s no way to access it, no references to it. Garbage collector will junk the data and free the memory.
+
+Now, lets imagine we created another ref for john obj..
+var obj1 = obj;
+In this case even if the obj is overwrtten obj1 still has access to the john object.
+
+Internal algorithms
+The basic garbage collection algorithm is called “mark-and-sweep”.
+
+The following “garbage collection” steps are regularly performed:
+
+The garbage collector takes roots and “marks” (remembers) them.
+Then it visits and “marks” all references from them.
+Then it visits marked objects and marks their references. All visited objects are remembered, so as not to visit the same object twice in the future.
+…And so on until there are unvisited references (reachable from the roots).
+All objects except marked ones are removed.
