@@ -1,0 +1,102 @@
+CONSTRUCTORS IN JAVACSRIPT
+
+In general, constructor is used for initialization purpose. The simple object literal would allow to create  only one object and many a times
+we would require to create multiple objects from the same object skeleton like user info / menu items.
+
+We do it using constructors-:
+   There are two standard ways of differentiating a normal function from a constructor:::
+      -- the first alphabet should be capital letter.
+      -- it should be invoked using the new operator.
+      
+ex::
+   function User(data){
+     this.name = data;
+     }
+     
+     var user = new User("John");   //constructor invocation
+     
+     When writing the above code three things happens::
+     
+     1) an {} is created and assigned to this inside the function internally.
+     2) new properties are added to the this object.
+     3) the value of this is returned.
+     
+     function User(name) {
+  // this = {};  (implicitly)
+
+  // add properties to this
+  this.name = name;
+  this.isAdmin = false;
+
+  // return this;  (implicitly)
+}
+
+
+NOTE***  
+***********THE MAIN PURPOSE OF CONTRUCTOR IS TO CREATE A REUSABLE OBJECT CREATION CODE.
+
+
+Consructor functions can also contain methods inside it.
+
+ex::
+    function User(name) {
+  this.name = name;
+
+  this.sayHi = function() {
+    alert( "My name is: " + this.name );
+  };
+}
+
+let john = new User("John");
+
+john.sayHi(); // My name is: John
+
+Two functions – one object
+importance: 2
+Is it possible to create functions A and B such as new A()==new B()?
+
+function A() { ... }
+function B() { ... }
+
+let a = new A;
+let b = new B;
+
+alert( a == b ); // true
+
+Solution::
+
+If two function returns the same object then the new operator returns it instead of this.
+So they can, for instance, return the same externally defined object obj:
+
+ let obj = {};
+
+function A() { return obj; }
+function B() { return obj; }
+
+alert( new A() == new B() ); // true
+
+Create new Accumulator
+importance: 5
+Create a constructor function Accumulator(startingValue).
+
+Object that it creates should:
+
+Store the “current value” in the property value. The starting value is set to the argument of the constructor startingValue.
+The read() method should use prompt to read a new number and add it to value.
+In other words, the value property is the sum of all user-entered values with the initial value startingValue.
+
+Here’s the demo of the code:
+
+function Accumulator(startingValue) {
+  this.value = startingValue;
+
+  this.read = function() {
+    this.value += +prompt('How much to add?', 0);
+  };
+
+}
+
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+alert(accumulator.value);
