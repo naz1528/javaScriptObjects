@@ -4,3 +4,56 @@ Ans. There are special methods to do this conversion in above cases when a primi
 
 Note** In objects there are no to-boolean conversion because there are only string and numeric conversion in objects.
 
+
+We usually use toString() in order to stringify the object and alert it.
+
+We can also do it using the symbol type and its functionalities.
+
+Consider an ex:
+let user = {
+  name: "John",
+  money: 1000,
+
+  // for hint="string"
+  toString() {
+    return `{name: "${this.name}"}`;
+  },
+
+  // for hint="number" or "default"
+  valueOf() {
+    return this.money;
+  }
+
+};
+
+alert(user); // toString -> {name: "John"}  // toString() is executed interfnally if not written explicitly in an obj.
+alert(+user); // valueOf -> 1000
+alert(user + 500); // valueOf -> 1500
+
+
+Note**
+In the absence of Symbol.toPrimitive and valueOf, toString will handle all primitive conversions.
+Consider the below examples::
+let obj = {
+   toString() {
+     return "2"
+}
+}
+alert(obj * 2 )    //4
+alert(obj + 2)    //22
+
+let obj = {
+   toString() {
+     return true;
+}
+}
+
+alert(obj + 2) //3 --> as it converts the value of true to 1 and then performs addition
+
+
+LATEST CONVERSION OPERATOR:
+Call obj[Symbol.toPrimitive](hint) if the method exists,
+Otherwise if hint is "string"
+try obj.toString() and obj.valueOf(), whatever exists.
+Otherwise if hint is "number" or "default"
+try obj.valueOf() and obj.toString(), whatever exists.
