@@ -1,0 +1,6 @@
+What happens when obj1 + obj2 or obj1 - obj2 or alert(obj1) is executed?
+
+Ans. There are special methods to do this conversion in above cases when a primitive value is required for printing.
+
+Note** In objects there are no to-boolean conversion because there are only string and numeric conversion in objects.
+
