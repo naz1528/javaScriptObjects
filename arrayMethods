@@ -136,6 +136,73 @@ arr.forEach(function(item, index, array) {
 
 Searching using indexOf, lastIndexOf, includes
 
+indexOf --> searches the item in the array if found retrns index else returns -1
+lastIndexOf --> searches from R->L 
+includes returns true if the item is included in the array else false
+NOTE*** 
+when searching for NAN includes is better because these search methods use === equality operator and it doesnt work ehn searching for Nan
+
+var arr = [1,0,false];
+arr.indexOf(0) //1
+arr.indexOf(1) //0
+arr.indexOf(false) //2  note it considers false as false only and not converts it to 0 becoz of the === equality .
+
+arr.includes(false) //true
+arr.indexOf(null) //-1
+
+const arr = [NaN];
+alert( arr.indexOf(NaN) ); // -1 (should be 0, but === equality doesn't work for NaN)
+alert( arr.includes(NaN) );// true (correct)
+
+find and findIndex
+
+Whenn an array has multple objects and we want to find one obj with a specific condition then array.find method comes handy. it  returns true when the search is finished and returns that item. else it returns 
+undefined.
+
+var fig = [
+    {
+      id: 1,
+      name: "john"
+    },
+    {
+      id: 2,
+      name: "sam"
+    },
+    {
+      id:3,
+      name: "zoii"
+    }
+          ]
+          
+   var res = fig.find(item => item.id == 2)
+   // res{id: 2, name: "sam"}
+   
+   findIndex also works the same way exceot for that it returns the index instead of the element itself
+   and -1 if the item is not found.
+   
+   FILTER 
+   The filter method looks for a single (first) element that makes the function return true.
+
+If there may be many, we can use arr.filter(fn).
+
+The syntax is similar to find, but filter continues to iterate for all array elements even if true is already returned:
+
+let results = arr.filter(function(item, index, array) {
+  // if true item is pushed to results and iteration continues
+  // returns empty array for complete falsy scenario
+});
+For instance:
+
+ let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"}
+];
+
+// returns array of the first two users
+let someUsers = users.filter(item => item.id < 3);
+
+
 
 
 
