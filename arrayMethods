@@ -1,0 +1,142 @@
+Add/ Remove elements from array
+
+arr.push() --> adds to the end of arr
+arr.unshift() --> adds to the begining of arr
+arr.pop() -->removes from the end of arr
+arr.shift() --> removes from the begining of arr
+
+
+Delete array elements:--
+   
+    Arrays are objects in javaScript so you can use delete method to delete items from an array. But as we delete elements with its indexes 
+    hence the value is deleted but the index is still there so the length of array doesnt decrese which is fine when working with objects.
+    
+    var arr = ["i","am","a","teacher"]
+    delete arr[1] //this would delete "am" from the array but the length will be 4 and accessing arr[1] would give undefined
+    
+    Hence, to avoid this use splice method. It adds, removes and inserts into an array.
+    
+    Syntax::  arr.splice(index,[deletecount, elem1, ... , elemn])
+        index --> the index from where you want to do the operation
+        deletecount --> number of elements to delete
+        elem1 ... elemn --> elements to insert
+        
+        EXAMPLES::1 (delete array elem)
+          var arr = ["i","am","a","teacher"]
+          arr.splice(3,1) // ["i","am","a"]
+          
+          2: (Adding elements in the array ..)
+          
+           arr.splice(4,0,"yesss!!!")  //  ["i","am","a","teacher","yesss!!!"]
+          
+          3: (Adding elements in the indexed of removed elem)
+          
+           arr.splice(3,1,"magician")  //  ["i","am","a","teacher","yesss!!!"]
+           
+           
+           Negative indexes allowed
+Here and in other array methods, negative indexes are allowed. They specify the position from the end of the array, like here:
+
+ let arr = [1, 2, 5];
+
+// from index -1 (one step from the end)
+// delete 0 elements,
+// then insert 3 and 4
+arr.splice(-1, 0, 3, 4);
+
+alert( arr ); // 1,2,3,4,5
+
+
+SLICE Method
+
+It is simpler compared to splice and ait also returns a new array.
+Syntax : arr.slice(start, end)
+
+It works like str.splice, but makes subarrays instead of substrings.
+
+For instance:
+
+ let str = "test";
+let arr = ["t", "e", "s", "t"];
+
+alert( str.slice(1, 3) ); // es
+alert( arr.slice(1, 3) ); // e,s
+
+alert( str.slice(-2) ); // st
+alert( arr.slice(-2) ); // s,t
+
+
+concat
+The method arr.concat joins the array with other arrays and/or items.
+
+The syntax is:
+
+arr.concat(arg1, arg2...)
+It accepts any number of arguments – either arrays or values.
+
+The result is a new array containing items from arr, then arg1, arg2 etc.
+
+If an argument is an array or has Symbol.isConcatSpreadable property, then all its elements are copied. Otherwise, the argument itself is copied.
+
+For instance:
+
+ let arr = [1, 2];
+
+// merge arr with [3,4]
+alert( arr.concat([3, 4])); // 1,2,3,4
+
+// merge arr with [3,4] and [5,6]
+alert( arr.concat([3, 4], [5, 6])); // 1,2,3,4,5,6
+
+// merge arr with [3,4], then add values 5 and 6
+alert( arr.concat([3, 4], 5, 6)); // 1,2,3,4,5,6
+Normally, it only copies elements from arrays (“spreads” them). Other objects, even if they look like arrays, added as a whole:
+
+ let arr = [1, 2];
+
+let arrayLike = {
+  0: "something",
+  length: 1
+};
+
+alert( arr.concat(arrayLike) ); // 1,2,[object Object]
+//[1, 2, arrayLike]
+…But if an array-like object has Symbol.isConcatSpreadable property, then its elements are added instead:
+
+ 
+
+
+
+
+
+let arr = [1, 2];
+
+let arrayLike = {
+  0: "something",
+  1: "else",
+  [Symbol.isConcatSpreadable]: true,
+  length: 2
+};
+
+alert( arr.concat(arrayLike) ); // 1,2,something,else
+
+forEach:
+Iterate: forEach
+The arr.forEach method allows to run a function for every element of the array.
+
+The syntax:
+
+arr.forEach(function(item, index, array) {
+  // ... do something with item
+});
+
+["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  alert(`${item} is at index ${index} in ${array}`);
+});
+
+Searching using indexOf, lastIndexOf, includes
+
+
+
+
+
